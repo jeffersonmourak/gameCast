@@ -32,7 +32,6 @@ window.onload = function() {
     window.messageBus.onMessage = function(event) {
     
         var command = event.data;
-        alert("Hello");
         switch(command){
             case "down left": Game.instance_.remoteControl("press","left"); break;
             case "up left": Game.instance_.remoteControl("leave","left"); break;

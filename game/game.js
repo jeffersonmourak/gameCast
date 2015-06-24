@@ -75,10 +75,10 @@
         },
         remoteControl: function(status, key){
             if(status == "press"){
-                this.key[key] = true;
+                this.game.key[key] = true;
             }
             else if(status == "leave"){
-                this.key[key] = false;
+                this.game.key[key] = false;
             }
         },
         update: function() {
@@ -468,4 +468,4 @@
 }());
 
 var gameCanvas = document.querySelector("#game");
-new Game(480, 320, gameCanvas);
+new Game(1280, 720, gameCanvas);
