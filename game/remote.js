@@ -23,12 +23,6 @@ window.onload = function() {
         }
     };
 
-    // handler for 'systemvolumechanged' event
-    castReceiverManager.onSystemVolumeChanged = function(event) {
-        console.log('Received System Volume Changed event: ' + event.data['level'] + ' ' +
-            event.data['muted']);
-    };
-
     // create a CastMessageBus to handle messages for a custom namespace
     window.messageBus =
         window.castReceiverManager.getCastMessageBus(
@@ -36,19 +30,22 @@ window.onload = function() {
 
     // handler for the CastMessageBus message event
     window.messageBus.onMessage = function(event) {
-        console.log('Message [' + event.senderId + ']: ' + event.data);
-        // display the message from the sender
-        displayText(event.data);
-        // inform all senders on the CastMessageBus of the incoming message event
-        // sender message listener will be invoked
-        window.messageBus.send(event.senderId, event.data);
+    
+        var command = event.data;
+
+        switch(command){
+            case "down left": Game.instance_.remoteControl("press","left"); break;
+            case "up left": Game.instance_.remoteControl("leave","left"); break;
+            case "down right": Game.instance_.remoteControl("press","right"); break;
+            case "up right": Game.instance_.remoteControl("leave","right"); break;
+        }
+        
     }
 
     // initialize the CastReceiverManager with an application status message
     window.castReceiverManager.start({
         statusText: "Application is starting"
     });
-    console.log('Receiver Manager started');
 };
 
 // utility function to display the text message in the input field

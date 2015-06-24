@@ -15,33 +15,24 @@ limitations under the License.
 -->
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <style type="text/css">
-	  body {
-	    overflow:hidden;
-	  }
-      div{
-	    height:720PX;
-	    width:1280PX;
-	    text-align:center;
-	    border:0px solid silver;
-	    display: table-cell;
-	    vertical-align:middle;
-	    color:#FFFFFF;
-	    background-color:#000000;
-	    font-weight:bold;
-	    font-family:Verdana, Geneva, sans-serif;
-	    font-size:40px;
-	}
+    body {
+        overflow: hidden;
+    }
     </style>
     <title>Cast Hello Text</title>
-  </head>
-  <body>
-  
+</head>
 
-
-	<DIV id="message">Talk to me</DIV>
+<body>
+    <div style="margin: 0 auto; display: block;">
+        <canvas id="game"></canvas>
+    </div>
+    <img id="player" src="assets/player.png" height="512" width="512" style="display:none;">
     <script type="text/javascript" src="//www.gstatic.com/cast/sdk/libs/receiver/2.0.0/cast_receiver.js"></script>
+    <script type="text/javascript" src="game/game.js"></script>
     <script type="text/javascript" src="game/remote.js"></script>
-  </body>
+</body>
+
 </html>

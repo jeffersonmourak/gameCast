@@ -25,6 +25,8 @@
             "space": false
         }
 
+        this.remote = true;
+
         this.enemies = [];
 
         if (Game.instance_) {
@@ -54,7 +56,9 @@
             this.HUDFps.x = this.canvas.sizes.width - 80;
             this.HUDFps.value = this.FPS;
 
-            this.getPressedKey();
+            if(!this.remote){
+                this.getPressedKey();
+            }
 
             this.time = 0;
             this.waiting = false;
@@ -69,6 +73,14 @@
             }, 1000 / this.FPS);
 
         },
+        remoteControl: function(status, key){
+            if(status == "press"){
+                this.key[key] = true;
+            }
+            else if(status == "leave"){
+                this.key[key] = false;
+            }
+        }
         update: function() {
             var keyDown = this.game.key;
             this.player.move(0, 0);
