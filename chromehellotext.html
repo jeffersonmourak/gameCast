@@ -47,14 +47,14 @@ input {
 <script type="text/javascript" src="//www.gstatic.com/cv/js/sender/v1/cast_sender.js"></script>
 <script type="text/javascript">
 var applicationID = '923B5D04';
-var namespace = 'urn:x-cast:com.google.cast.sample.helloworld';
+var namespace = 'urn:x-cast:com.jeffersonmourak.game';
 var session = null;
 
 /**
  * Call initialization for Cast
  */
 if (!chrome.cast || !chrome.cast.isAvailable) {
-  setTimeout(initializeCastApi, 1000);
+  setTimeout(initializeCastApi, 5000);
 }
 
 /**

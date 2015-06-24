@@ -26,13 +26,13 @@ window.onload = function() {
     // create a CastMessageBus to handle messages for a custom namespace
     window.messageBus =
         window.castReceiverManager.getCastMessageBus(
-            'urn:x-cast:com.google.cast.sample.helloworld');
+            'urn:x-cast:com.jeffersonmourak.game');
 
     // handler for the CastMessageBus message event
     window.messageBus.onMessage = function(event) {
     
         var command = event.data;
-
+        alert("Hello");
         switch(command){
             case "down left": Game.instance_.remoteControl("press","left"); break;
             case "up left": Game.instance_.remoteControl("leave","left"); break;
