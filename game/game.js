@@ -80,7 +80,7 @@
             else if(status == "leave"){
                 this.key[key] = false;
             }
-        }
+        },
         update: function() {
             var keyDown = this.game.key;
             this.player.move(0, 0);
