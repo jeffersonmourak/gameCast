@@ -468,4 +468,4 @@
 }());
 
 var gameCanvas = document.querySelector("#game");
-new Game(1280, 720, gameCanvas);
+new Game(640, 480, gameCanvas);
